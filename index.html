@@ -11,7 +11,7 @@
         margin: 0;
       }
       .content-screen {
-        background-color: black;
+        background-color: white;
         position: absolute;
         top: 0;
         left: 0;
@@ -30,7 +30,7 @@
         width: 37px;
         margin: 0 0 0 4px;
         border: 2px solid #111;
-        border-radius: 11px; 
+        border-radius: 11px;
         background-color: rgb(255, 255, 255);
       }
       .search-container {
@@ -38,20 +38,115 @@
         height: 33px;
         padding: 10px 15px 0px 10px;
       }
+      ul {
+        list-style: none;
+        padding: 10px;
+      }
+      li {
+        padding: 0px;
+      }
+      h3 {
+        margin: 0;
+      }
+      p {
+        margin: 15px;
+      }
     </style>
     <div class="search-container">
       <input id="search-input" type="text" placeholder="search.." />
       <button id="find">→</button>
     </div>
-    <div id="content" class="content-screen"></div>
+    <div id="content" class="content-screen">
+      <ul>
+        <li>
+          <a href=""
+            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
+          >
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>
+              Fges and web page editors now use Lorem Ipsum as their default
+            </h3></a
+          >
+          <p>
+            years old. Richard McClintock, a Latin professor at Hampden-Sydney
+            College in Virginia, looked up one of the more obscure Latin words,
+            con
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>There are many variations of passages of Lorem Ipsum</h3></a
+          >
+          <p>
+            Lomised words which don't look even slightly believable. If you are
+            going to use a passage of Lorem Ipsum, you need to be sure there
+            isn't anything embarrassi
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
+          >
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
+          >
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
+          >
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
+          >
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </li>
+        <li>
+          <a href=""
+            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
+          >
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s
+          </p>
+        </li>
+      </ul>
+    </div>
     <script>
       // imports
       const find = document.getElementById("find");
       const content_screen = document.getElementById("content");
       find.addEventListener("click", () => {
-        for (i = 0; i < 1; i += 0.05) {
-          content_screen.style.scale = i;
-        }
         content_screen.style.display = "block";
       });
 
