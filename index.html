@@ -1,135 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search System</title>
-  </head>
-  <body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Основные мета-теги для веб-приложения -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Название Приложения">
+    
+    <!-- Цвет панели статуса (для iOS 15+) -->
+    <meta name="theme-color" content="#вашцвет">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Иконки для главного экрана -->
+    <link rel="apple-touch-icon" href="/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180x180.png">
+    <link rel="apple-touch-startup-image" href="/splash-screen.png">
+    
+    <title>Название Приложения</title>
+    
     <style>
-      body {
-        margin: 0;
-      }
-      .content-screen {
-        background-color: white;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: 0.3s;
-        display: none;
-        margin-top: 45px;
-      }
-      #search-input {
-        border: 2px solid #111;
-        border-radius: 11px;
-        width: 100%;
-      }
-      #find {
-        padding: 0;
-        width: 37px;
-        margin: 0 0 0 4px;
-        border: 2px solid #111;
-        border-radius: 11px;
-        background-color: rgb(255, 255, 255);
-      }
-      .search-container {
-        display: flex;
-        height: 33px;
-        padding: 10px 15px 0px 10px;
-      }
-      ul {
-        list-style: none;
-        padding: 10px;
-      }
-      li {
-        padding: 0px;
-      }
-      h3 {
-        margin: 0;
-      }
-      p {
-        margin: 15px;
-      }
+        /* Стили чтобы убрать полосы прокрутки в полноэкранном режиме */
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            background-color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+        }
     </style>
-    <div class="search-container">
-      <input id="search-input" type="text" placeholder="search.." />
-      <button id="find">→</button>
-    </div>
-    <div id="content" class="content-screen">
-      <ul>
-        <li>
-          <a href=""
-            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
-          >
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
-        </li>
-        <li>
-          <a href=""
-            ><h3>
-              Fges and web page editors now use Lorem Ipsum as their default
-            </h3></a
-          >
-          <p>
-            years old. Richard McClintock, a Latin professor at Hampden-Sydney
-            College in Virginia, looked up one of the more obscure Latin words,
-            con
-          </p>
-        </li>
-        <li>
-          <a href=""
-            ><h3>There are many variations of passages of Lorem Ipsum</h3></a
-          >
-          <p>
-            Lomised words which don't look even slightly believable. If you are
-            going to use a passage of Lorem Ipsum, you need to be sure there
-            isn't anything embarrassi
-          </p>
-        </li>
-        <li>
-          <a href=""
-            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
-          >
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
-        </li>
-        <li>
-          <a href=""
-            ><h3>Lorem Ipsum is simply dummy text of the printing</h3></a
-          >
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </p>
-        </li>
-      </ul>
-    </div>
-    <script>
-      // imports
-      const find = document.getElementById("find");
-      const content_screen = document.getElementById("content");
-      find.addEventListener("click", () => {
-        content_screen.style.display = "block";
-      });
-
-      // lists
-      const objects = ["яблок", "банан", "лимон", "груш"];
-      const subsidiaries = ["зелен", "красн", "фиолетов", "желт"];
-      const descriptions = [
-        "текст про яблоко",
-        "текст про банан",
-        "текст про лимон",
-        "текст про грушу",
-      ];
-    </script>
-  </body>
+</head>
+<body>
+    <!-- Ваш контент -->
+    <div id="app">Загрузка...</div>
+    <div>Приложение полностью функционально. @Lopshichka.</div>
+</body>
 </html>
