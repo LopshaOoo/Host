@@ -37,31 +37,69 @@
 </head>
 <body>
     <p style="margin: 10px;">Full Screen App. Чтобы превратить сайт в приложение добавь его на экран «Домой» для включения полноэкранного режима</p>
-    <script>// Проверяем поддержку и показываем кнопку
-if ('BeforeInstallPromptEvent' in window) {
-  let deferredPrompt;
+    <button id="installButton" style="display: none;">
+  📱 Добавить на экран «Домой»
+</button>
+    <script>// Ждем загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
   const installButton = document.getElementById('installButton');
-  
+  let deferredPrompt;
+
+  // Событие срабатывает, когда браузер готов предложить установку
   window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('beforeinstallprompt сработал');
+    
     // Предотвращаем автоматическое отображение баннера
     e.preventDefault();
+    
+    // Сохраняем событие для использования позже
     deferredPrompt = e;
+    
+    // Показываем нашу кнопку
     installButton.style.display = 'block';
   });
-  
+
+  // Обработчик клика по кнопке
   installButton.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) {
+      console.log('deferredPrompt не доступен');
+      return;
+    }
+
+    console.log('Показываем диалог установки');
     
+    // Показываем диалог установки
     deferredPrompt.prompt();
+    
+    // Ждем выбора пользователя
     const { outcome } = await deferredPrompt.userChoice;
+    
+    console.log(`Пользователь выбрал: ${outcome}`);
     
     if (outcome === 'accepted') {
       console.log('Пользователь установил приложение');
+      // Можно показать сообщение об успехе
+      installButton.textContent = '✅ Установлено!';
+    } else {
+      console.log('Пользователь отказался от установки');
     }
     
+    // Очищаем ссылку на событие
     deferredPrompt = null;
-    installButton.style.display = 'none';
+    
+    // Скрываем кнопку после использования
+    setTimeout(() => {
+      installButton.style.display = 'none';
+    }, 2000);
   });
-}</script>
+
+  // Скрываем кнопку, если приложение уже установлено
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA было установлено');
+    installButton.style.display = 'none';
+    deferredPrompt = null;
+  });
+});
+</script>
 </body>
 </html>
