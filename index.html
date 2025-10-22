@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-title" content="FullScrn App">
     
     <!-- Цвет панели статуса (для iOS 15+) -->
-    <meta name="theme-color" content="#вашцвет">
+    <meta name="theme-color" content="red">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Иконки для главного экрана -->
@@ -18,7 +18,6 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/icon-180x180.png">
     <link rel="apple-touch-startup-image" href="/splash-screen.png">
-    <link rel="manifest" href="/manifest.json">
     <title>FullScrn App</title>
     
     <style>
@@ -36,99 +35,8 @@
     </style>
 </head>
 <body>
-    <p style="margin: 10px;">Full Screen App. Чтобы превратить сайт в приложение добавь его на экран «Домой» для включения полноэкранного режима</p>
-    <button id="installButton" style="display: none;">
-  📱 Добавить на экран «Домой»
-</button>
-    <script>// Ждем загрузки DOM
-document.addEventListener('DOMContentLoaded', function() {
-  const installButton = document.getElementById('installButton');
-  let deferredPrompt;
-
-  console.log('DOM загружен, проверяем PWA поддержку...');
-
-  // Проверяем поддержку PWA
-  if (!('BeforeInstallPromptEvent' in window)) {
-    console.log('Браузер не поддерживает PWA установку');
-    
-    // Показываем инструкции для ручной установки
-    showManualInstructions();
-    return;
-  }
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('✅ beforeinstallprompt сработал!');
-    e.preventDefault();
-    deferredPrompt = e;
-    installButton.style.display = 'block';
-  });
-
-  installButton.addEventListener('click', async () => {
-    if (!deferredPrompt) {
-      console.log('❌ deferredPrompt не доступен');
-      showManualInstructions();
-      return;
-    }
-
-    try {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      
-      console.log(`Пользователь выбрал: ${outcome}`);
-      
-      if (outcome === 'accepted') {
-        installButton.textContent = '✅ Установлено!';
-      }
-      
-      deferredPrompt = null;
-      setTimeout(() => {
-        installButton.style.display = 'none';
-      }, 2000);
-    } catch (error) {
-      console.error('Ошибка установки:', error);
-      showManualInstructions();
-    }
-  });
-
-  window.addEventListener('appinstalled', () => {
-    console.log('✅ PWA установлено!');
-    installButton.style.display = 'none';
-  });
-
-  // Функция для показа инструкций
-  function showManualInstructions() {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-    const isAndroid = /Android/.test(navigator.userAgent);
-    
-    let message = 'Используйте меню браузера для добавления на главный экран';
-    
-    if (isIOS) {
-      message = 'iOS: Нажмите 🍏 → "На экран Домой"';
-    } else if (isAndroid) {
-      message = 'Android: Меню → "Добавить на главный экран"';
-    }
-    
-    installButton.textContent = message;
-    installButton.style.display = 'block';
-    installButton.style.background = '#28a745';
-  }
-
-  // Проверяем через 3 секунды, если событие не сработало
-  setTimeout(() => {
-    if (installButton.style.display === 'none') {
-      console.log('Событие beforeinstallprompt не сработало за 3 секунды');
-      showManualInstructions();
-    }
-  }, 3000);
-});
-</script>
-<script>
-// Регистрируем Service Worker
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(() => console.log('Service Worker зарегистрирован'))
-    .catch(err => console.log('Ошибка Service Worker:', err));
-}
-</script>
+    <p style="margin: 10px;">Full Screen App. @Lopshichka</p>
+    <input type="text" placeholder="search..">
+    <button>⩥</button>
 </body>
 </html>
