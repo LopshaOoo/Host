@@ -1,42 +1,81 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Основные мета-теги для веб-приложения -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="FullScrn App">
-    
-    <!-- Цвет панели статуса (для iOS 15+) -->
-    <meta name="theme-color" content="COLOR!!!">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- Иконки для главного экрана -->
-    <link rel="apple-touch-icon" href="/icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon-180x180.png">
-    <link rel="apple-touch-startup-image" href="/splash-screen.png">
-    <title>FullScrn App</title>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="FullScreen" />
+    <meta name="theme-color" content="#000000" />
+    <title>FullScreen</title>
     <style>
-        /* Стили чтобы убрать полосы прокрутки в полноэкранном режиме */
-        body {
-            margin: 0;
-            padding: 0;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-            background-color: #ffffff;
-            overflow: hidden;
-            height: 100vh;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        background: #000000;
+        height: 100vh;
+        height: -webkit-fill-available;
+        overflow: hidden;
+        padding: env(safe-area-inset-top) env(safe-area-inset-right)
+          env(safe-area-inset-bottom) env(safe-area-inset-left);
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      }
     </style>
-</head>
-<body>
-    <p style="margin: 10px;">Full Screen App. @Lopshichka</p>
-    <input type="text" id="" placeholder="search..">
-    <button>⩥</button>
-</body>
+  </head>
+  <body>
+    <p
+      style="
+        color: aliceblue;
+        text-align: center;
+        position: absolute;
+        bottom: 2%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 100%;
+        opacity: 0.9;
+      "
+    >
+      Работает в полноэкранном режиме
+    </p>
+    <script>
+      document.addEventListener("gesturestart", function (e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener("gesturechange", function (e) {
+        e.preventDefault();
+      });
+
+      document.addEventListener("gestureend", function (e) {
+        e.preventDefault();
+      });
+
+      let lastTouchEnd = 0;
+      document.addEventListener(
+        "touchend",
+        function (event) {
+          const now = new Date().getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        },
+        false
+      );
+    </script>
+  </body>
 </html>
